@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Dimensions, StyleSheet, Text, View } from 'react-native';
 import Bird from './components/Bird';
+import Obstacles from './components/Obstacles';
 
 export default function App() {
 
@@ -10,6 +11,11 @@ export default function App() {
   const [birdBottom, setBirdBottom] = useState(screenHeight / 2)
   const gravity  = 3
   let gameTimerId
+  const[obstaclesLeft, setObstaclesLeft] = useState(screenWidth)
+  let obstaclesLeftTimerId
+  const obstacleWidth = 60
+  const obstacleHeight = 300
+  const gap = 200
 
   //start bird fall
   useEffect(() => {
@@ -23,6 +29,23 @@ export default function App() {
     }
   },[birdBottom])
 
+// start first obs
+useEffect(() => {
+  if(obstaclesLeft > -obstacleWidth) {
+    obstaclesLeftTimerId = setInterval(() => {
+      setObstaclesLeft(obstaclesLeft => obstaclesLeft - 5)
+    }, 30)
+    
+    return ()=>{
+      clearInterval(obstaclesLeftTimerId)
+    }
+
+  } else {
+    setObstaclesLeft(screenWidth)
+  }
+ 
+}, [obstaclesLeft])
+
   return (
     <View style={styles.container}>
       
@@ -30,7 +53,14 @@ export default function App() {
      birdBottom={birdBottom}
      birdLeft={birdLeft}
      />
+      <Obstacles 
+      obstacleWidth={obstacleWidth}
+      obstacleHeight={obstacleHeight}
+      gap={gap}
+      obstaclesLeft={obstaclesLeft}
+    />
     </View>
+   
   );
 }
 
