@@ -17,6 +17,8 @@ For this project we create flappy bird in react native which we have done on and
 
 https://www.youtube.com/watch?v=dhpjjAxKbHE
 
+original project repo -> https://github.com/kubowania/flappy-birds-react-native
+
 https://blog.expo.dev/sunsetting-the-web-ui-for-expo-cli-ab12936d2206?gi=5e5884b4ca4f
 
 https://stackoverflow.com/questions/67394607/expo-react-native-physical-device-run-on-localhost
@@ -46,3 +48,5 @@ https://stackoverflow.com/questions/73342553/metro-bundler-doesnt-automatically-
 https://docs.expo.dev/get-started/create-a-project/#open-the-app-on-your-device
 
 https://docs.expo.dev/tutorial/create-your-first-app/
+
+https://www.toptal.com/developers/gitignore/
